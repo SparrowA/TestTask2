@@ -14,20 +14,20 @@ public class Main {
             return false;
         }
 
-        boolean bFind = false;
+        boolean bFind = true;
         for(Object x : X){
-            bFind = false;
-            for(int y = 0; y < Y.size(); y++){
-                if(Y.get(y).equals(x)){
+            for(Object y : Y){
+                if(!x.equals(y))
                     Y.remove(y);
-                    bFind = true;
+                if(X.size() > Y.size()){
+                    bFind = false;
+                    break;
                 }
             }
-
-            if (!bFind)
-                return false;
+            if(!bFind)
+                break;
         }
 
-        return true;
+        return bFind;
     }
 }
